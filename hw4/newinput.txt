@@ -1,0 +1,178 @@
+123.45
+d
+a
+Rick Riordan
+autfsdf
+f
+12.1
+A
+1984
+george orwell
+F
+9.52
+A
+Fahrenheit 451
+Ray Bradbury
+S
+19.52
+A
+The Great Gatsby
+F. Scott Fitzgerald
+M
+92.52
+A
+The Picture of Dorian Gray
+Oscar Wilde
+S
+954.2
+A
+the catcher in the rye
+j.d. salinger
+F
+3.90
+O
+d
+g
+f
+g
+M
+g
+S
+G
+C
+o
+a
+d
+A
+war and peace
+leo tolstoy
+s
+9.52
+A
+middlemarch
+george eliot
+c
+1.23
+A
+frankenstein
+mary shelley
+F
+9.52
+d
+o
+t
+d
+A
+pride and prejudice
+jane austen
+F
+8.32
+A
+the hungry catepillar
+idr
+m
+9.52
+A
+magic tree house
+i dr
+s
+9.2
+d
+g
+f
+g
+M
+g
+S
+G
+C
+A
+Percy Jackson
+Rick Riordan
+s
+9.91
+A
+The lightning thief
+Rick Riordan
+c
+8.95
+A
+egypt
+Rick Riordan
+m
+9.51
+f
+The lightning thief
+F
+dasd
+F
+magic tree house
+f
+jane austen
+F
+Rick Riordan
+o
+t
+l
+e
+o
+h
+m
+F
+aifjdsj
+a
+newbook
+author
+p
+w
+t
+f
+-1
+0
+-2
+.01
+D
+M
+O
+A
+o
+t
+s
+the book
+s jfadskf
+s The Great Gatsby
+d
+o
+t
+d
+s
+1984
+s
+magic tree house
+S
+The lightning thief
+d
+o
+a
+d
+O
+t
+D
+s
+egypt
+s
+the hungry catepillar
+o
+a
+d
+s
+newbook
+f
+mary shelley
+s
+middlemarch
+d
+o
+a
+d
+x
