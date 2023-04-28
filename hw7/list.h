@@ -23,6 +23,17 @@ public:
    bool isEmpty() const;
    void print() const;
 
+
+
+   // *** functions by Max Boyington START ***
+   void insertMiddle(const NODETYPE &, int position);
+   bool removeMiddle(NODETYPE &, int position);
+   List(const List & otherList); // copy constructor
+   List operator= (const List & otherList); // assignment operator
+   // *** functions by Max Boyington END ***
+
+
+
 private:
    ListNode< NODETYPE > *firstPtr;  // pointer to first node
    ListNode< NODETYPE > *lastPtr;   // pointer to last node
@@ -31,6 +42,74 @@ private:
    ListNode< NODETYPE > *getNewNode( const NODETYPE & );
 
 }; // end class List
+
+
+
+// *** functions by Max Boyington START ***
+template< class NODETYPE >
+void List<NODETYPE>::insertMiddle(const NODETYPE &value, int position)
+// if position > num of items in list, insert at back
+// if position <= 0, insert at front
+{
+   if (position <= 1)
+   {
+      insertAtFront(value);
+      return;
+   }
+
+   ListNode< NODETYPE >* middlePtr = firstPtr;
+   for (int i = 1; i < position - 1; i++)
+   {
+      if (middlePtr->nextPtr == 0) // if position > num of items in list
+         return insertAtBack(value);
+      
+      middlePtr = middlePtr->nextPtr; // increments middlePtr
+   }
+
+   ListNode< NODETYPE > *middleNode = getNewNode(value);
+   middleNode->nextPtr = middlePtr->nextPtr;
+   middlePtr->nextPtr = middleNode;
+}
+template< class NODETYPE >
+bool List<NODETYPE>::removeMiddle(NODETYPE &value, int position)
+// if position is larger than num of items in list or < 0, return false
+{
+   if (isEmpty() || position < 0) // list is empty or pos < 0
+      return false; 
+
+   if (firstPtr->nextPtr == 0)
+      return removeFromFront(value);
+
+   ListNode< NODETYPE >* middlePtr = firstPtr;
+   for (int i = 1; i < position; i++)
+   {
+      if (middlePtr->nextPtr == 0) // if position > num of items in list
+         return false;
+      
+      middlePtr = middlePtr->nextPtr; // increments middlePtr
+   }
+
+   ListNode< NODETYPE >* tempPtr = middlePtr;
+   middlePtr = middlePtr->nextPtr;
+   
+   value = tempPtr->data; // value of NODETYPE is saved
+   delete [] tempPtr;
+
+   return true;
+}
+template< class NODETYPE >
+List<NODETYPE>::List(const List & otherList) // copy constructor
+{
+
+}
+template< class NODETYPE >
+List<NODETYPE> List<NODETYPE>::operator=(const List & otherList) // assignment operator
+{
+
+}
+// *** functions by Max Boyington END ***
+
+
 
 // default constructor
 template< class NODETYPE >
