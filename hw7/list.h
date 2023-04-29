@@ -81,7 +81,7 @@ bool List<NODETYPE>::removeMiddle(NODETYPE &value, int position)
       return removeFromFront(value);
 
    ListNode< NODETYPE >* middlePtr = firstPtr;
-   for (int i = 1; i < position; i++)
+   for (int i = 0; i < position - 2; i++)
    {
       if (middlePtr->nextPtr == 0) // if position > num of items in list
          return false;
@@ -89,10 +89,10 @@ bool List<NODETYPE>::removeMiddle(NODETYPE &value, int position)
       middlePtr = middlePtr->nextPtr; // increments middlePtr
    }
 
-   ListNode< NODETYPE >* tempPtr = middlePtr;
-   middlePtr = middlePtr->nextPtr;
-   
+   ListNode< NODETYPE >* tempPtr = middlePtr->nextPtr;
    value = tempPtr->data; // value of NODETYPE is saved
+
+   middlePtr->nextPtr = middlePtr->nextPtr->nextPtr;
    delete [] tempPtr;
 
    return true;
@@ -100,12 +100,36 @@ bool List<NODETYPE>::removeMiddle(NODETYPE &value, int position)
 template< class NODETYPE >
 List<NODETYPE>::List(const List & otherList) // copy constructor
 {
+   firstPtr = lastPtr = 0;
 
+   ListNode< NODETYPE >* thisPtr = firstPtr;
+   ListNode< NODETYPE >* otherPtr = otherList.firstPtr;
+   
+   while (otherPtr != 0)
+   {
+      insertAtBack(otherPtr->getData());
+      otherPtr = otherPtr->nextPtr; // increment
+   }
 }
 template< class NODETYPE >
 List<NODETYPE> List<NODETYPE>::operator=(const List & otherList) // assignment operator
 {
+   while (!isEmpty())
+   {
+      NODETYPE temp;
+      removeFromFront(temp);
+   }
 
+   ListNode< NODETYPE >* thisPtr = firstPtr;
+   ListNode< NODETYPE >* otherPtr = otherList.firstPtr;
+   
+   while (otherPtr != 0)
+   {
+      insertAtBack(otherPtr->getData());
+      otherPtr = otherPtr->nextPtr; // increment
+   }
+
+   return *this;
 }
 // *** functions by Max Boyington END ***
 
@@ -125,25 +149,7 @@ List< NODETYPE >::List()
 template< class NODETYPE >
 List< NODETYPE >::~List()
 {
-   if ( !isEmpty() ) {    // List is not empty
-//      cout << "Destroying nodes ...\n";
-
-      ListNode< NODETYPE > *currentPtr = firstPtr;
-      ListNode< NODETYPE > *tempPtr;
-
-      while ( currentPtr != 0 )         // delete remaining nodes
-      {  
-         tempPtr = currentPtr;
-
-// commented out the output -- no need to print what we are deallocating
-//         cout << tempPtr->data << '\n';  
-
-         currentPtr = currentPtr->nextPtr;
-         delete tempPtr;
-
-      }
-
-   }
+   
 
 //   cout << "All nodes destroyed\n\n";
 
